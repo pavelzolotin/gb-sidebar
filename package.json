@@ -1,0 +1,23 @@
+{
+	"name": "gb-sidebar",
+	"version": "1.0.0",
+	"description": "",
+	"main": "build/index.js",
+	"scripts": {
+		"build": "wp-scripts build",
+		"start": "wp-scripts start"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@wordpress/scripts": "^22.3.0"
+	},
+	"dependencies": {
+		"@wordpress/block-editor": "^9.0.0",
+		"@wordpress/components": "^19.7.0",
+		"@wordpress/data": "^6.5.0",
+		"@wordpress/edit-post": "^6.2.0",
+		"@wordpress/i18n": "^4.5.0",
+		"@wordpress/plugins": "^4.3.0"
+	}
+}
