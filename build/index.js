@@ -92,6 +92,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+const {
+  select
+} = wp.data;
 
 const FeaturedMedia = () => {
   const mediaID = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_5__.useSelect)(select => {
@@ -146,6 +149,12 @@ const FeaturedMedia = () => {
 
 (0,_wordpress_plugins__WEBPACK_IMPORTED_MODULE_1__.registerPlugin)('gb-media-plugin', {
   render: () => {
+    const postType = select('core/editor').getCurrentPostType();
+
+    if (postType !== 'gutenberg_players') {
+      return null;
+    }
+
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_2__.PluginDocumentSettingPanel, {
       name: "gb-media",
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)('Featured Video', 'gb-sidebar'),

@@ -5,6 +5,8 @@ import { Button } from '@wordpress/components';
 import { useSelect, useDispatch } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
+const { select } = wp.data;
+
 const FeaturedMedia = () => {
 	const mediaID = useSelect((select) => {
 		return select('core/editor').getEditedPostAttribute('meta')
@@ -71,6 +73,11 @@ const FeaturedMedia = () => {
 
 registerPlugin('gb-media-plugin', {
 	render: () => {
+		const postType = select('core/editor').getCurrentPostType();
+		if (postType !== 'gutenberg_players') {
+			return null;
+		}
+
 		return (
 			<PluginDocumentSettingPanel
 				name='gb-media'

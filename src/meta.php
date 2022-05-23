@@ -9,6 +9,10 @@ function gb_sidebar_sanitize_check_number( $number, $setting ) {
 	return ( $number ? $number : $setting -> default );
 }
 
+function gb_sidebar_sanitize_check_url( $url ) {
+	return esc_url_raw( $url );
+}
+
 function gb_sidebar_register_meta() {
     register_meta( 'post', '_gb_sidebar_footer_widgets', array(
         'object_subtype' => '',
@@ -40,7 +44,7 @@ function gb_sidebar_register_meta() {
         'type' => 'string',
         'default' => '',
         'show_in_rest' => true,
-        'sanitize_callback' => 'sanitize_url',
+        'sanitize_callback' => 'gb_sidebar_sanitize_check_url',
         'auth_callback' => function() {
             return current_user_can( 'edit_posts' );
         }
